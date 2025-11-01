@@ -97,3 +97,31 @@ InitTestScene*.unity*
 
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+
+# XR / OpenXR / Package Cache auto-generated files
+/[Ll]ibrary/PackageCache/
+/[Ll]ibrary/ShaderCache/
+/[Ll]ibrary/Artifacts/
+/[Ll]ibrary/Bee/
+/[Ll]ibrary/GI/
+/[Ll]ibrary/PlayerDataCache/
+/[Ll]ibrary/ScriptAssemblies/
+/[Ll]ibrary/SourceAssetDB*
+/[Ll]ibrary/StateCache/
+/[Ll]ibrary/TerrainTools/
+/[Ll]ibrary/ShaderIncludes/
+/[Ll]ibrary/ilpp.pid
+
+# Unity Crash and Import Logs
+/[Ll]ibrary/EditorInstance.json
+/[Ll]ibrary/Editor.log
+/[Ll]ibrary/AssetImportWorker*
+
+# Local logs and project cache
+/[Ll]ibrary/PackageManager/
+/[Ll]ibrary/com.unity.addressables/
+/[Ll]ibrary/PackageCacheBackup/
+/[Ll]ibrary/ScriptMapper/
+
+# Ignore XR Device Simulator and OpenXR documentation assets
+/[Ll]ibrary/PackageCache/com.unity.xr.*
