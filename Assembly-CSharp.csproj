@@ -2,6 +2,20 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <!-- Generated file, do not modify, your changes will be overwritten (use AssetPostprocessor.OnGeneratedCSProject) -->
   <PropertyGroup>
+<<<<<<< HEAD
+    <BaseIntermediateOutputPath>Temp\obj\$(Configuration)\$(MSBuildProjectName)</BaseIntermediateOutputPath>
+    <IntermediateOutputPath>$(BaseIntermediateOutputPath)</IntermediateOutputPath>
+  </PropertyGroup>
+  <Import Project="Sdk.props" Sdk="Microsoft.NET.Sdk" />
+  <ItemGroup>
+    <ProjectCapability Include="Unity" />
+  </ItemGroup>
+  <PropertyGroup>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <EnableDefaultItems>false</EnableDefaultItems>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+=======
+>>>>>>> 22f08e52c3a4e48ab38cbfbf97e5b245f8240c6f
     <LangVersion>9.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
@@ -55,6 +69,10 @@
     <UnityVersion>2022.3.62f2</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+<<<<<<< HEAD
+    <Analyzer Include="C:\Users\laraa\.vscode\extensions\visualstudiotoolsforunity.vstuc-1.1.3\Analyzers\Microsoft.Unity.Analyzers.dll" />
+=======
+>>>>>>> 22f08e52c3a4e48ab38cbfbf97e5b245f8240c6f
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.62f2\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.62f2\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
@@ -87,23 +105,34 @@
     <None Include="Assets\3D Gamekit - Environment Pack\Shaders\GroundCover.shader" />
     <None Include="Assets\3D Gamekit - Environment Pack\Shaders\Terrain.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
+<<<<<<< HEAD
+=======
     <None Include="Assets\Vefects\Free Fire VFX URP\_ Extra\Shaders\SH_Vefects_Extra_Billboard_01.shader" />
+>>>>>>> 22f08e52c3a4e48ab38cbfbf97e5b245f8240c6f
     <None Include="Assets\VRTemplateAssets\Shaders\Grid.shader" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
+<<<<<<< HEAD
+=======
     <None Include="Assets\Vefects\Free Fire VFX URP\Shaders\SH_Vefects_VFX_URP_Heat_Haze_01.shader" />
     <None Include="Assets\Vefects\Free Fire VFX URP\Shaders\SH_Vefects_VFX_URP_Particles_Erosion_01.shader" />
+>>>>>>> 22f08e52c3a4e48ab38cbfbf97e5b245f8240c6f
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+<<<<<<< HEAD
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\TextMesh Pro\Fonts\License.txt" />
+=======
     <None Include="Assets\Vefects\Free Fire VFX URP\Shaders\SH_Vefects_VFX_URP_Fire_Flames_01.shader" />
     <None Include="Assets\StarSparrow\Readme.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\TextMesh Pro\Fonts\License.txt" />
     <None Include="Assets\Vefects\Free Fire VFX URP\_ Extra\Shaders\SH_Vefects_Extra_Grid_01.shader" />
+>>>>>>> 22f08e52c3a4e48ab38cbfbf97e5b245f8240c6f
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\VRTemplateAssets\Shaders\TexturedFresnelStandard.shader" />
