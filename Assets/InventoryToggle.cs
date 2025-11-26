@@ -1,121 +1,72 @@
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 
-/// <summary>
-/// Manages the InventoryGrid by listening for an input action.
-/// When the action is performed, it checks all child XRSocketInteractors (slots).
-/// If a slot is filled, it deactivates the item and the slot itself.
-/// </summary>
 public class InventoryToggle : MonoBehaviour
 {
-    [Header("Input Configuration")]
-    [Tooltip("The input action that will trigger the clearing of the inventory slots.")]
-    [SerializeField]
-    private InputActionReference clearInventoryActionReference;
+    [Header("Assign visuals here")]
+    public GameObject bg;
+    public GameObject[] slots;
 
-    // A cached list of all XRSocketInteractors (slots) that are children of this GameObject.
-    private List<UnityEngine.XR.Interaction.Toolkit.Interactors.XRSocketInteractor> inventorySlots;
-    private InputAction clearInventoryAction;
+    [Header("Input Action")]
+    public InputActionReference toggleAction;
 
-    private void Awake()
-    {
-        // 1. Initialize Input Action
-        if (clearInventoryActionReference != null)
-        {
-            clearInventoryAction = clearInventoryActionReference.action;
-        }
-        else
-        {
-            Debug.LogError("Clear Inventory Action Reference is null on " + gameObject.name);
-        }
-
-        // 2. Find all Slot Interactors in children (assuming slots are children of this object)
-        inventorySlots = GetComponentsInChildren<UnityEngine.XR.Interaction.Toolkit.Interactors.XRSocketInteractor>().ToList();
-
-        if (inventorySlots.Count == 0)
-        {
-            Debug.LogWarning("Found no XRSocketInteractor components (slots) as children of " + gameObject.name);
-        }
-        else if (inventorySlots.Count != 16)
-        {
-            Debug.LogWarning($"Expected 16 slots, but found {inventorySlots.Count} slots.");
-        }
-    }
+    private bool visible = true;
 
     private void OnEnable()
     {
-        // Subscribe to the input action event
-        if (clearInventoryAction != null)
-        {
-            clearInventoryAction.performed += OnClearInventoryPerformed;
-            clearInventoryAction.Enable();
-        }
+        toggleAction.action.performed += OnToggle;
     }
 
     private void OnDisable()
     {
-        // Unsubscribe from the input action event
-        if (clearInventoryAction != null)
-        {
-            clearInventoryAction.performed -= OnClearInventoryPerformed;
-            clearInventoryAction.Disable();
-        }
+        toggleAction.action.performed -= OnToggle;
     }
 
-    /// <summary>
-    /// Event handler for when the input action is triggered.
-    /// </summary>
-    /// <param name="context">The context of the input action.</param>
-    private void OnClearInventoryPerformed(InputAction.CallbackContext context)
+    private void OnToggle(InputAction.CallbackContext ctx)
     {
-        Debug.Log("Clear Inventory action triggered. Processing slots...");
-        ProcessSlots();
+        ToggleInventory();
     }
 
-    /// <summary>
-    /// Iterates through all inventory slots, checks if they are filled, and if so,
-    /// deactivates both the item and the slot GameObject.
-    /// </summary>
-    private void ProcessSlots()
+    private void ToggleInventory()
     {
-        int itemsCleared = 0;
+        visible = !visible;
 
-        foreach (var slot in inventorySlots)
+        // Toggle BG image
+        var bgImage = bg.GetComponent<UnityEngine.UI.Image>();
+        if (bgImage != null)
+            bgImage.enabled = visible;
+
+        // Handle all slots
+        foreach (var slot in slots)
         {
-            // Use 'hasSelection' to check if the slot is currently holding an item (modern API).
-            if (slot.hasSelection)
-            {
-                // CORRECTED: Use 'interactablesSelected[0]' to get the selected item. 
-                // XRSocketInteractor is single-selection, so index 0 is safe.
-                UnityEngine.XR.Interaction.Toolkit.Interactables.IXRSelectInteractable selectedItem = slot.interactablesSelected[0];
+            if (slot == null) continue;
 
-                // Get the item's GameObject
-                // We access the transform from the IXRSelectInteractable interface.
-                GameObject itemObject = selectedItem.transform.gameObject;
+            // Toggle Slot Image
+            var img = slot.GetComponent<UnityEngine.UI.Image>();
+            if (img != null)
+                img.enabled = visible;
 
-                // 1. Make the item disappear (set inactive)
-                itemObject.SetActive(false);
-                Debug.Log($"Cleared item: {itemObject.name}");
+            // Get the socket
+            UnityEngine.XR.Interaction.Toolkit.Interactors.XRSocketInteractor socket = slot.GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactors.XRSocketInteractor>();
+            if (socket == null) continue;
 
-                // 2. Make the slot disappear (set inactive)
-                // Note: The socket interactor's GameObject is the slot itself
-                slot.gameObject.SetActive(false);
-                Debug.Log($"Cleared slot: {slot.gameObject.name}");
+            // Check if something is attached
+            if (socket.interactablesSelected.Count == 0)
+                continue;
 
-                itemsCleared++;
-            }
-        }
+            // Get the attached interactable
+            UnityEngine.XR.Interaction.Toolkit.Interactables.IXRSelectInteractable interactable = socket.interactablesSelected[0];
+            if (interactable == null) continue;
 
-        if (itemsCleared > 0)
-        {
-            Debug.Log($"Successfully cleared {itemsCleared} item(s) and their respective slots.");
-        }
-        else
-        {
-            Debug.Log("Inventory was empty. Nothing to clear.");
+            // Get the actual GameObject
+            Transform item = interactable.transform;
+
+            // Disable/enable mesh renderers on the item
+            MeshRenderer[] renderers = item.GetComponentsInChildren<MeshRenderer>();
+            foreach (var r in renderers)
+                r.enabled = visible;
         }
     }
 }
