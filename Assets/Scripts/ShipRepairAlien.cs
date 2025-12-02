@@ -34,7 +34,7 @@ public class ShipRepairAlien : MonoBehaviour
     public void OnInstructionsPressed()
     {
         repairUI.ShowText(
-            "Explore the planet and collect energy crystals. Each one restores your ship."
+            "Explore the planet and collect energy crystals from aliens that look like me. Each one restores your ship."
         );
     }
 

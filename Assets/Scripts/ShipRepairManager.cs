@@ -9,6 +9,10 @@ public class ShipRepairManager : MonoBehaviour
     public GameObject[] repairBars;
     public int barsPerCrystal = 10;
 
+    [Header("Ship Objects")]
+    public GameObject crashedShip;
+    public GameObject repairedShip;
+
     private int repairLevel = 0;
 
     void Awake()
@@ -61,17 +65,19 @@ public class ShipRepairManager : MonoBehaviour
 
         for (int i = 0; i < barsPerCrystal; i++)
         {
-            if (repairLevel >= repairBars.Length)
-            {
-                Debug.Log("🛑 All bars already filled");
-                SceneManager.LoadScene("Spaceship");
-                return;
-            }
-
             Debug.Log($"✅ Turning ON bar: {repairBars[repairLevel].name}");
             repairBars[repairLevel].SetActive(true);
 
             repairLevel++;
+
+            if (repairLevel >= repairBars.Length)
+            {
+                Debug.Log("🛑 All bars have been filled");
+                crashedShip.SetActive(false);
+                repairedShip.SetActive(true);
+                // SceneManager.LoadScene("Spaceship"); (move later to separate script)
+                return;
+            }
         }
     }
 }
