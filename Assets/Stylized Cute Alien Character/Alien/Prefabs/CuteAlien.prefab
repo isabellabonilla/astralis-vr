@@ -1024,6 +1024,8 @@ GameObject:
   - component: {fileID: 6064476555349323560}
   - component: {fileID: 304785855897225176}
   - component: {fileID: 5111553592952343049}
+  - component: {fileID: 822041875625722467}
+  - component: {fileID: 9062459453729173458}
   m_Layer: 0
   m_Name: CuteAlien
   m_TagString: Untagged
@@ -1108,6 +1110,141 @@ MonoBehaviour:
   - Welcome, traveler.
   - "You\u2019ve landed in a peaceful place."
   dialogueHeight: 2.5
+--- !u!82 &822041875625722467
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6064476555349323561}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &9062459453729173458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6064476555349323561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34363dd5b86af964194355415995228a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alienSounds:
+  - {fileID: 8300000, guid: 530bee4b4430f5c48bd75c7fdccc994f, type: 3}
+  - {fileID: 8300000, guid: 33921359dad6f264eb60d03da3278779, type: 3}
+  - {fileID: 8300000, guid: 41ed803db98e7884a8d28f91195f36cd, type: 3}
+  - {fileID: 8300000, guid: e31a913dedc830f4b9581a45592a3fb9, type: 3}
+  - {fileID: 8300000, guid: cb964f5a696c8004ea0d4d6af09d3289, type: 3}
+  - {fileID: 8300000, guid: 6bd44a1a4147ace4a82cf0ae1a28a7a4, type: 3}
+  - {fileID: 8300000, guid: 40f5ee33550c61c4fab93f33fe821bd3, type: 3}
+  - {fileID: 8300000, guid: 10036a04655d9d446abbcf7e38888c12, type: 3}
+  - {fileID: 8300000, guid: 5e0b30c012782ab419e05dfd6b0302ad, type: 3}
+  - {fileID: 8300000, guid: ad84d040f24366c47a3117f236038020, type: 3}
+  - {fileID: 8300000, guid: 7880f04f403c45d429a5bf652ef7da5b, type: 3}
+  - {fileID: 8300000, guid: e6211a90e94b3bb44808a8c47544bccf, type: 3}
+  - {fileID: 8300000, guid: c7e4356a2a068cd4db4c92e9ae633ac1, type: 3}
+  - {fileID: 8300000, guid: b7d1e52962fa59743a6eefacc1e91671, type: 3}
+  - {fileID: 8300000, guid: 6362d1da4d6abf047a28e4fba5c6222b, type: 3}
+  - {fileID: 8300000, guid: f3b30ca34d1f55a4290fbdb660a5c4e0, type: 3}
+  - {fileID: 8300000, guid: b4ddecc86c5abd84ea2ee59f29cce3ae, type: 3}
+  - {fileID: 8300000, guid: fdd8c1cfc51abc44c8216815607edc9e, type: 3}
+  - {fileID: 8300000, guid: 24d17ea8db48d9f45b0c3977e2aaf27b, type: 3}
+  - {fileID: 8300000, guid: b3a8114522b39b24186a0bd32f91cf91, type: 3}
+  minDelay: 2
+  maxDelay: 100
+  minPitch: 0.9
+  maxPitch: 1.2
+  minVolume: 0.7
+  maxVolume: 1
 --- !u!1 &6064476555411932811
 GameObject:
   m_ObjectHideFlags: 0
