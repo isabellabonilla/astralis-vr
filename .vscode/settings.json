@@ -51,5 +51,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "astralis-vr.sln"
+    "dotnet.defaultSolution": "ASTRALIS VR.sln"
 }
